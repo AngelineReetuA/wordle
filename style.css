@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Brush Script MT", Cursive;
 }
 .row {
   display: flex;
@@ -27,7 +26,6 @@ header {
   background-color: #44af69;
   color: black;
   font-size: 30px;
-  font-family: "Brush Script MT", Cursive;
   font-size: 40px;
   font-weight: bolder;
 }
@@ -44,7 +42,6 @@ header {
   font-size: 14px;
   margin: auto;
   cursor: pointer;
-  font-family: "Brush Script MT", Cursive;
   font-size: 15px;
   font-weight: bold;
 }
@@ -61,7 +58,6 @@ header {
   font-size: 14px;
   margin: auto;
   cursor: pointer;
-  font-family: "Brush Script MT", Cursive;
   font-size: 15px;
   font-weight: bold;
 }
@@ -70,18 +66,15 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: "Brush Script MT", Cursive;
   font-size: 20px;
 }
 .labels {
   font-size: medium;
-  font-family: "Brush Script MT", Cursive;
   font-weight: bold;
   color: #44af69;
 }
 .textboxes {
   font-size: medium;
-  font-family: "Brush Script MT", Cursive;
   color: black;
 }
 .loginButton {
@@ -97,7 +90,6 @@ header {
   font-size: 14px;
   margin: auto;
   cursor: pointer;
-  font-family: "Brush Script MT", Cursive;
   font-size: 15px;
   font-weight: bold;
 }
