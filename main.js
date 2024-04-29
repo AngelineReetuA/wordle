@@ -130,7 +130,6 @@ const dataset = [
 ];
 
 const randomElement = dataset[Math.floor(Math.random() * dataset.length)];
-console.log(randomElement);
 
 const solution = randomElement;
 
@@ -193,19 +192,9 @@ function checkSolution(currentTry) {
     document.removeEventListener("keydown", typingListener);
     document.getElementById("playAgain").style.color = "#44AF69";
     document.getElementById("playAgain").style.display = "flex";
+    document.getElementById("box").style.display = "none"
   }
 
-  // for (i = 0; i < 5; i++) {
-  //   let elem = document
-  //     .querySelector(`#row${currentTry}`)
-  //     .getElementsByClassName("dappa")[i];
-
-  //   if (userIP[i] === sol[i]) {
-  //     elem.style.backgroundColor = "#44AF69";
-  //     sol.splice(i, 1, "0");
-  //     console.log("correct alpha and pos" + userIP[i]);
-  //   }
-  // }
   let correctLetters = [];
   let wrongPositions = [];
   for (c = 0; c < 5; c++) {
@@ -221,7 +210,6 @@ function checkSolution(currentTry) {
       .getElementsByClassName("dappa")[i];
     const index = sol.indexOf(userIP[i]);
     if (userIP[i] === sol[i]) {
-      console.log("correct alpha and pos" + userIP[i]);
       elem.style.backgroundColor = "#44AF69";
     } else if (
       solution.includes(userIP[i]) &&
@@ -229,16 +217,60 @@ function checkSolution(currentTry) {
       wrongPositions.includes(userIP[i])
     ) {
       elem.style.backgroundColor = "#FCAB10";
-      console.log(
-        "correct letter but wrong pos" + userIP[i] + " indexed at" + index
-      );
     } else {
       elem.style.backgroundColor = "#F8333C";
-      console.log("wrong" + userIP[i]);
     }
   }
 }
 
+function showKeyboard() {
+  document.getElementById("showK").style.display = "none";
+  document.getElementById("del").style.display = "block";
+  del.addEventListener("click", () => {});
+  var html = "";
+  for (var i = 65; 90 >= i; i++) {
+    // A-65, Z-90
+    c = String.fromCharCode(i);
+    html += `<button class="keypad">${c}</button>`;
+  }
+  window.onload = document.getElementById("box").innerHTML = html;
+  var keys = document.querySelectorAll(".keypad");
+
+  keys.forEach(function (key) {
+    key.addEventListener("click", function () {
+      var letter = this.textContent;
+      var currentRow = document.querySelector(`#row${currentTry}`);
+      var dappaBoxes = currentRow.querySelectorAll(".dappa");
+
+      for (var i = 0; i < dappaBoxes.length; i++) {
+        if (dappaBoxes[i].textContent === "") {
+          dappaBoxes[i].textContent = letter;
+          currentDappa++;
+          if (currentDappa > 5) {
+            checkSolution(currentTry);
+            currentTry++;
+            currentDappa = 1;
+          }
+          break;
+        }
+      }
+    });
+  });
+}
+
+const del = document.getElementById("del");
+del.addEventListener("click", () => {
+  let temp = document
+    .querySelector(`#row${currentTry}`)
+    .querySelectorAll(".dappa");
+  var curr = temp[currentDappa - 2];
+  if(curr){
+    curr.textContent = "";
+    currentDappa--;
+  }else{
+    alert("Please type something and then delete")
+  }
+});
 //color ref
 //elem.style.backgroundColor = "#44AF69"; -- correct
 //elem.style.backgroundColor = "#FCAB10"; -- wrong pos

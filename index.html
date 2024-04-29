@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wordle</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
   </head>
   <body>
     <header>WORDLE</header>
@@ -55,7 +54,13 @@
       </div>
     </div>
     <br />
+    <button class="buttonK" id="showK" onclick="showKeyboard()">Keyboard</button>
+    <div id="box" class="keypadWrapper">
+    </div>
+    <center><button id="del" class="del" style="display: none;">Delete</button></center>
+    <div id="name"></div>
     <label id="answer" class="answer"></label><br />
-    <button id="playAgain" onclick="reset()">PLAY AGAIN</button>
+    <button id="playAgain" class="button" onclick="reset()">PLAY AGAIN</button>
+    <script src="main.js"></script>
   </body>
 </html>
