@@ -132,7 +132,7 @@ const dataset = [
 const randomElement = dataset[Math.floor(Math.random() * dataset.length)];
 
 const solution = randomElement;
-
+console.log(solution)
 const totalTries = 6;
 let currentTry = 1;
 
@@ -161,7 +161,6 @@ function typingListener(event) {
       .querySelector(`#row${currentTry}`)
       .querySelectorAll(".dappa");
     var curr = temp[currentDappa - 2];
-    console.log(curr);
     curr.textContent = "";
     currentDappa--;
   }
@@ -193,6 +192,13 @@ function checkSolution(currentTry) {
     document.getElementById("playAgain").style.color = "#44AF69";
     document.getElementById("playAgain").style.display = "flex";
     document.getElementById("box").style.display = "none"
+    document.getElementById("del").style.display = "none"
+    document.getElementById("showK").style.display = "none"
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
   }
 
   let correctLetters = [];
