@@ -11,3 +11,6 @@ Welcome to the Wordle App! This simple word-guessing game challenges players to 
 - HTML
 - CSS
 - JavaScript
+
+## PLAY IT HERE
+https://angelinereetua.github.io/wordle/ 
