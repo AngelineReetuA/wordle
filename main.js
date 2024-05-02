@@ -125,7 +125,6 @@ const dataset = [
   "ZEBRA",
   "ZONAL",
   "ZILCH",
-
   "ZESTY",
 ];
 
@@ -151,6 +150,7 @@ function typingListener(event) {
   if (currentTry == 6 && currentDappa == 5) {
     document.getElementById("playAgain").style.color = "#F8333C";
     document.getElementById("playAgain").style.display = "flex";
+    document.getElementById("showK").style.display = "none"
     const ansElem = document.getElementById("answer");
     ansElem.style.display = "flex";
     ansElem.textContent = "The answer is " + solution;
@@ -187,6 +187,7 @@ function checkSolution(currentTry) {
     .textContent.trim()
     .split("\n");
   userIP = userIP.map((x) => x.trim());
+
   if (JSON.stringify(userIP) == JSON.stringify(sol)) {
     document.removeEventListener("keydown", typingListener);
     document.getElementById("playAgain").style.color = "#44AF69";
@@ -257,6 +258,19 @@ function showKeyboard() {
             currentTry++;
             currentDappa = 1;
           }
+
+          if (currentTry === 7 && currentDappa === 1) {
+            document.getElementById("playAgain").style.color = "#F8333C";
+            document.getElementById("playAgain").style.display = "flex";
+           
+            const ansElem = document.getElementById("answer");
+            ansElem.style.display = "flex";
+            ansElem.textContent = "The answer is " + solution;
+            console.log("hi")
+            document.getElementById("del").style.display = "none"
+            document.getElementById("box").style.display = "none"
+          }
+        
           break;
         }
       }
@@ -277,7 +291,16 @@ del.addEventListener("click", () => {
     alert("Please type something and then delete")
   }
 });
+
+function closePopup() {
+  document.querySelector(".popup").style.display = "none";
+}
+
+window.addEventListener("load", function() {
+  document.querySelector(".popup").style.display = "block";
+});
+
 //color ref
-//elem.style.backgroundColor = "#44AF69"; -- correct
-//elem.style.backgroundColor = "#FCAB10"; -- wrong pos
-//elem.style.backgroundColor = "#F8333C"; -- complete wrong
+//"#44AF69"; -- correct
+//"#FCAB10"; -- wrong pos
+//"#F8333C"; -- complete wrong

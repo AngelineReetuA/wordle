@@ -8,6 +8,23 @@
   </head>
   <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   <body>
+    <div class="popup">
+      <div class="popup-content">
+        <h1>Welcome to Wordle!</h1>
+        <p>You have six tries to guess a five letter word. You can enter any letters to guess the word.</p>
+        <div>
+          At the end of each guess, if the letter turns
+          <ul>
+            <li>Red - Wrong letter</li>
+            <li>Yellow - Correct letter, wrong position</li>
+            <li>Green - Correct letter, correct position</li>
+          </ul>
+        </div>
+        <small>You can use your keyboard / click on the keyboard button to reveal a letter keyboard</small>
+        <p> Happy Playing !! </p>
+        <button class="buttonK" type="button" onclick="closePopup()">Close</button>
+      </div>
+    </div>
     <header>WORDLE</header>
     <br /><br />
     <div class="container">

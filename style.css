@@ -77,26 +77,6 @@ header {
   font-size: medium;
   color: black;
 }
-.loginButton {
-  border-radius: 10%;
-  background-color: #44af69;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  margin: auto;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-}
-.loginImg {
-  width: 150px;
-  height: 150px;
-}
 .keypadWrapper{
   text-align: center;
 }
@@ -111,4 +91,19 @@ header {
   padding: 10px;
   margin:2px;
   align-items: center;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.popup-content {
+  width: 40%;
+  margin: 100px auto;
+  background-color: white;
+  padding: 20px;
 }
