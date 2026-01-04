@@ -12,9 +12,9 @@ export function Box({ rowIndex, colIndex }: BoxProps) {
 
   let bgColor = "bg-gray-400";
 
-  if (valueStatus === "wrongLetter") bgColor = "bg-gray-700";
-  else if (valueStatus === "wrongPlace") bgColor = "bg-yellow-500";
-  else if (valueStatus === "right") bgColor = "bg-green-600";
+  if (valueStatus === "absent") bgColor = "bg-gray-700";
+  else if (valueStatus === "present") bgColor = "bg-yellow-500";
+  else if (valueStatus === "correct") bgColor = "bg-green-600";
 
   return (
     <div

@@ -20,7 +20,6 @@ export function GameGrid() {
       </div>
       <Keyboard
         currentRow={currentRow}
-        onEnter={() => setCurrentRow((prev) => Math.min(prev + 1, 5))}
       />
     </>
   );

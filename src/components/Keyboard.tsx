@@ -9,11 +9,41 @@ const KEYS = [
 
 type KeyboardProps = {
   currentRow: number;
-  onEnter: () => void;
 };
 
-export function Keyboard({ currentRow, onEnter }: KeyboardProps) {
+export function Keyboard({ currentRow }: KeyboardProps) {
   const { guesses, setGuess } = useGame();
+
+  const onEnter = () => {
+    const row = guesses[currentRow];
+
+    if (row.includes("")) return;
+
+    const guess = row.join("");
+    const result = Array(5).fill("absent");
+    const answerArr = "REETU".split("");
+
+    // GREEN pass
+    guess.split("").forEach((ch, i) => {
+      if (ch === answerArr[i]) {
+        result[i] = "correct";
+        answerArr[i] = "";
+      }
+    });
+
+    // YELLOW pass
+    guess.split("").forEach((ch, i) => {
+      if (result[i] === "absent" && answerArr.includes(ch)) {
+        result[i] = "present";
+        answerArr[answerArr.indexOf(ch)] = "";
+      }
+    });
+
+    // Apply status to each box
+    result.forEach((status, colIndex) => {
+      setGuess(currentRow, colIndex, row[colIndex], status);
+    });
+  };
 
   const handleKey = (key: string) => {
     const row = guesses[currentRow];
@@ -24,6 +54,7 @@ export function Keyboard({ currentRow, onEnter }: KeyboardProps) {
         .slice()
         .reverse()
         .findIndex((v) => v !== "");
+
       if (lastFilledIndex !== -1) {
         const colIndex = 4 - lastFilledIndex;
         setGuess(currentRow, colIndex, "", "");
@@ -32,6 +63,10 @@ export function Keyboard({ currentRow, onEnter }: KeyboardProps) {
     }
 
     if (key === "Enter") {
+      if (row.includes("")) {
+        alert("Please complete entering 5 letters");
+        return;
+      }
       onEnter();
       return;
     }
